@@ -1,0 +1,26 @@
+﻿body {
+}
+#main {
+    margin-top: 100px;
+}
+
+.btn-office {
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+.keg {
+    margin: 5px;
+    width: 250px;
+    height: 350px;
+    display: inline-block;
+    text-align:center;
+    vertical-align: middle;
+}
+.beerKegContainer {
+    margin: 100px auto;
+    text-align: center;
+}
+.beer-brand {
+    font-size: 20px;
+}
