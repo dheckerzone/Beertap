@@ -183,8 +183,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBeerApiService.cs" />
     <Compile Include="BeerApiService.cs" />
     <Compile Include="Common.cs" />
+    <Compile Include="IAddBeerApiService.cs" />
     <Compile Include="IBeerApiService.cs" />
     <Compile Include="IDomainServiceResolver.cs" />
     <Compile Include="IOfficeApiService.cs" />

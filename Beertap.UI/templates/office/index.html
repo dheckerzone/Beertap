@@ -1,7 +1,18 @@
-﻿<div>
+﻿<div class="row">
     <button class="btn btn-default btn-lg btn-office" ng-repeat="office in offices" ng-click="loadBeers(office);">{{office.Location}}</button>
+    <div class="row" ng-show="beers">
+        <div class="col-md-4 col-md-offset-5">
+            <select class="form-control input-lg" ng-model="selectedBrand">
+                <option ng-repeat="b in beerOptions" value="{{b}}">{{b}}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary btn-lg" ng-click="addKeg(selectedOffice, selectedBrand)">Add Keg</button>
+        </div>
+    </div>
 </div>
-<div class="container beerKegContainer">
+
+<div class="container beerKegContainer row">
     <div ng-repeat="beer in beers._embedded.self" class="keg vertical">
         <div>
             <p class="lead text-center">{{beer.BeerState}} <small>({{beer.Milliliters}} ml)</small></p>

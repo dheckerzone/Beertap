@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Beertap.Model;
 using IQ.Platform.Framework.WebApi.Hypermedia;
 using IQ.Platform.Framework.WebApi.Hypermedia.Specs;

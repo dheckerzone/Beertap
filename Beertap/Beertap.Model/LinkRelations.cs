@@ -21,6 +21,8 @@
             public const string ReplaceKeg = "ReplaceKeg";
 
             public const string GetBeer = "GetBeer";
+
+            public const string AddKeg = "AddKeg";
         }
 
     }

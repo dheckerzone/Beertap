@@ -13,7 +13,7 @@ namespace Beertap.Data
     {
         public BeertapContext() : base("BeertapContext")
         {
-
+            Database.SetInitializer<BeertapContext>(new BeertapInitializer());
         }
 
         public DbSet<Office> Office { get; set; }

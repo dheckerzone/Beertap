@@ -3,8 +3,7 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace Beertap.Model
 {
-    public class BeerDTO: BeerBaseDTO, IStatefulResource<BeerState>, IIdentifiable<int>, IStatefulBeer
+    public class AddBeerDTO: BeerBaseDTO, IStatelessResource, IIdentifiable<int>
     {
-        
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Beertap.Model;
 using IQ.Platform.Framework.WebApi.Hypermedia;
 using IQ.Platform.Framework.WebApi.Hypermedia.Specs;
@@ -16,6 +13,7 @@ namespace Beertap.WebApi.Hypermedia
         {
             yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.Id);
             yield return CreateLinkTemplate(LinkRelations.Beer, BeerSpec.Uri.Many, c=> c.Id);
+            yield return CreateLinkTemplate(LinkRelations.Beers.AddKeg, AddBeerSpec.Uri, c => c.Id);
         }
 
         public override string EntrypointRelation

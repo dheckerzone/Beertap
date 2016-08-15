@@ -8,7 +8,14 @@
                     $scope.offices = data._embedded.self;
                 });
 
+                $scope.beerOptions = ['Budweiser', 'Bud Light', 'Corona Extra', 'Labatt Blue', 'Red Horse Beer', 'San Miguel Pale Pilsen', 'Victoria Bitter'];
+
+                $scope.selectedBrand = 'Budweiser';
+
+                $scope.selectedOffice = {};
+
                 $scope.loadBeers = function (office) {
+                    $scope.selectedOffice = office;
                     var link = appSettings.serverPath + office._links.Beer.href;
                     $http({
                         method: "GET",
@@ -49,6 +56,29 @@
                         data: beer
                     }).then(function (response) {
                         $scope.beers._embedded.self[index] = response.data;
+                    });
+                }
+
+                $scope.addKeg = function (office, brand) {
+                    var link = appSettings.serverPath + office._links.AddKeg.href;
+
+                    var newKeg = {
+                        "OfficeId": office.Id,
+                        "Brand": brand,
+                        "Milliliters": 4000,
+                        "BeerState": "New"
+                    }
+
+                    $http({
+                        method: "POST",
+                        url: link,
+                        headers: {
+                            'accept': 'application/hal+json',
+                            'Content-Type': 'application/json'
+                        },
+                        data: newKeg
+                    }).then(function (response) {
+                        $scope.beers._embedded.self.push(response.data);
                     });
                 }
             });

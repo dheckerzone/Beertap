@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBeerDTO.cs" />
     <Compile Include="BeerBaseDTO.cs" />
     <Compile Include="BeerDTO.cs" />
     <Compile Include="BeerState.cs" />

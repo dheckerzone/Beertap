@@ -300,11 +300,11 @@
     </Compile>
     <Compile Include="Handlers\NullUserContext.cs" />
     <Compile Include="Handlers\PutYourApiSafeNameUserContextProvidingHandler.cs" />
+    <Compile Include="Hypermedia\AddBeerSpec.cs" />
     <Compile Include="Hypermedia\BeerSpec.cs" />
     <Compile Include="Hypermedia\BeerStateProvider.cs" />
     <Compile Include="Hypermedia\OfficeSpec.cs" />
     <Compile Include="Hypermedia\ReplaceBeerSpec.cs" />
-    <Compile Include="Hypermedia\ReplaceBeerStateProvider.cs" />
     <Compile Include="Infrastructure\BootStrapper.cs" />
     <Compile Include="Infrastructure\DefaultApiContainer.cs" />
     <Compile Include="Infrastructure\Installers\ResourceMapperInstaller.cs" />

@@ -12,8 +12,6 @@ namespace Beertap.Data
         protected override void Seed(BeertapContext context)
         {
 
-            context.Database.Create();
-
             var offices = new List<Office>
             {
                 new Office
@@ -24,7 +22,7 @@ namespace Beertap.Data
                         new Beer
                         {
                             Brand = "Budweiser",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         }
                     }
                 },
@@ -36,7 +34,7 @@ namespace Beertap.Data
                         new Beer
                         {
                             Brand = "Bud Light",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         }
                     }
                 },
@@ -48,7 +46,7 @@ namespace Beertap.Data
                         new Beer
                         {
                             Brand = "Corona Extra",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         }
                     }
                 },
@@ -60,7 +58,7 @@ namespace Beertap.Data
                         new Beer
                         {
                             Brand = "Labatt Blue",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         }
                     }
                 },
@@ -72,12 +70,12 @@ namespace Beertap.Data
                         new Beer
                         {
                             Brand = "Red Horse",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         },
                         new Beer
                         {
                             Brand = "San Mig Light",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         }
                     }
                 },
@@ -89,7 +87,7 @@ namespace Beertap.Data
                         new Beer
                         {
                             Brand = "Victoria Bitter",
-                            Milliliters = 3900
+                            Milliliters = 4000
                         }
                     }
                 }

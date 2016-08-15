@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Beertap.Data;
@@ -23,16 +22,7 @@ namespace Beertap.ApiServices
 
             using (var ctx = new BeertapContext())
             {
-                var beer = ctx.Beer.First(b => b.OfficeId == officeId && b.BeerId == id);
-
-                var result = new BeerDTO
-                {
-                    Id = beer.BeerId,
-                    Brand = beer.Brand,
-                    Milliliters = beer.Milliliters,
-                    OfficeId = beer.OfficeId,
-                    BeerState = Common.GetBeerState(beer.Milliliters)
-                };
+                BeerDTO result = GetBeerInfo(id, officeId, ctx);
 
                 return Task.FromResult(result);
             }
@@ -83,6 +73,42 @@ namespace Beertap.ApiServices
 
                 return Task.FromResult(result.AsEnumerable());
             }
+        }
+
+        public Task<ResourceCreationResult<BeerDTO, int>> CreateAsync(BeerDTO resource, IRequestContext context, CancellationToken cancellation)
+        {
+            using (var ctx = new BeertapContext())
+            {
+                var beer = new Beer
+                {
+                    Brand = resource.Brand,
+                    Milliliters = resource.Milliliters,
+                    OfficeId = resource.OfficeId
+                };
+
+                ctx.Beer.Add(beer);
+
+                ctx.SaveChanges();
+
+                var result = GetBeerInfo(beer.BeerId, beer.OfficeId, ctx);
+
+                return Task.FromResult(new ResourceCreationResult<BeerDTO, int>(result));
+            }
+        }
+
+        private BeerDTO GetBeerInfo(int id, int officeId, BeertapContext ctx)
+        {
+            var beer = ctx.Beer.First(b => b.OfficeId == officeId && b.BeerId == id);
+
+            var result = new BeerDTO
+            {
+                Id = beer.BeerId,
+                Brand = beer.Brand,
+                Milliliters = beer.Milliliters,
+                OfficeId = beer.OfficeId,
+                BeerState = Common.GetBeerState(beer.Milliliters)
+            };
+            return result;
         }
     }
 }

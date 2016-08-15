@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Beertap.Model;
 using IQ.Platform.Framework.Common;
 using IQ.Platform.Framework.WebApi.Hypermedia;
@@ -28,28 +25,24 @@ namespace Beertap.WebApi.Hypermedia
                 {
                     BeerState.New, new[]
                     {
-                        BeerState.New,
                         BeerState.GoingDown
                     }
                 },
                 {
                     BeerState.GoingDown, new[]
                     {
-                        BeerState.GoingDown,
                         BeerState.AlmostEmpty
                     }
                 },
                 {
                     BeerState.AlmostEmpty, new[]
                     {
-                        BeerState.AlmostEmpty,
                         BeerState.Dry
                     }
                 },
                 {
                     BeerState.Dry, new[]
                     {
-                        BeerState.Dry,
                         BeerState.New
                     }
                 },
