@@ -56,6 +56,7 @@ Raw, Json:
   "Milliliters": 4000,
   "BeerState": "New"
 }
+```
 
 **Add Keg**
 
@@ -71,5 +72,4 @@ Raw, Json:
   "Milliliters": 4000,
   "BeerState": "New"
 }
-
 ```
