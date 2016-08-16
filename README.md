@@ -36,7 +36,7 @@ Raw, Json:
   "Id": 1,
   "OfficeId": 1,
   "Brand": "Budweiser",
-  "Milliliters": 4000,
+  "Milliliters": 400,
   "BeerState": "New"
 }
 ```
