@@ -4,31 +4,31 @@
 
 Method: Get
 
-URL: http://localhost:3000//office
+URL: http://localhost:3000//offices
 
 **Office**
 
 Method: Get
 
-URL: http://localhost:3000//office(1)
+URL: http://localhost:3000//offices(1)
 
 **Beer List**
 
 Method: Get
 
-URL: http://localhost:3000//office(1)/beer
+URL: http://localhost:3000//offices(1)/beers
 
 **Beer**
 
 Method: Get
 
-URL: http://localhost:3000//office(1)/beer(1)
+URL: http://localhost:3000//offices(1)/beers(1)
 
 **Get Beer**
 
 Method: POST
 
-URL: http://localhost:3000//office(1)/beer(1)
+URL: http://localhost:3000//offices(1)/beers(1)
 
 Raw, Json:
 ```
@@ -45,7 +45,7 @@ Raw, Json:
 
 Method: POST
 
-URL: http://localhost:3000//office(1)/ReplaceKeg(1)
+URL: http://localhost:3000//offices(1)/ReplaceKeg(1)
 
 Raw, Json:
 ```
@@ -56,4 +56,20 @@ Raw, Json:
   "Milliliters": 4000,
   "BeerState": "New"
 }
+
+**Add Keg**
+
+Method: POST
+
+URL: http://localhost:3000//offices(1)/AddKeg
+
+Raw, Json:
+```
+{
+  "OfficeId": 1,
+  "Brand": "Corona Extra",
+  "Milliliters": 4000,
+  "BeerState": "New"
+}
+
 ```
