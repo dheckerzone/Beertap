@@ -6,15 +6,15 @@
         .module('Beertap')
         .config(function ($routeProvider, $locationProvider) {
             $routeProvider
-                .when('/office', {
+                .when('/offices', {
                     templateUrl: '/templates/office/index.html',
                     controller: 'officeCtrl'
                 })
-                .when('/beer', {
+                .when('/beers', {
                     templateUrl: '/templates/beer/index.html',
                     controller: 'beerCtrl'
                 })
-                .otherwise({ redirectTo: '/office' });
+                .otherwise({ redirectTo: '/offices' });
         });
 
 })();

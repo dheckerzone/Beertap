@@ -5,5 +5,6 @@ namespace Beertap.Model
 {
     public class ReplaceBeerDTO: BeerBaseDTO, IStatelessResource, IIdentifiable<int>
     {
+
     }
 }

@@ -8,7 +8,7 @@ namespace Beertap.WebApi.Hypermedia
 {
     public class BeerSpec : ResourceSpec<BeerDTO, BeerState, int>
     {
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Office({OfficeId})/Beer({Id})");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({OfficeId})/Beers({Id})");
         protected override IEnumerable<ResourceLinkTemplate<BeerDTO>> Links()
         {
             yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.OfficeId, c => c.Id);
@@ -47,7 +47,7 @@ namespace Beertap.WebApi.Hypermedia
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Beers.GetBeer, Uri, c=> c.OfficeId, c=> c.Id),
-                    CreateLinkTemplate(LinkRelations.Beers.ReplaceKeg, ReplaceBeerSpec.Uri, c=> c.OfficeId, c=> c.Id)
+                    CreateLinkTemplate(LinkRelations.Beers.ReplaceKeg, ReplaceKegSpec.Uri, c=> c.OfficeId, c=> c.Id)
                 },
                 Operations = new StateSpecOperationsSource<BeerDTO, int>()
                 {
@@ -60,7 +60,7 @@ namespace Beertap.WebApi.Hypermedia
             {
                 Links =
                 {
-                    CreateLinkTemplate(LinkRelations.Beers.ReplaceKeg, ReplaceBeerSpec.Uri, c=> c.OfficeId, c=> c.Id)
+                    CreateLinkTemplate(LinkRelations.Beers.ReplaceKeg, ReplaceKegSpec.Uri, c=> c.OfficeId, c=> c.Id)
                 },
                 Operations = new StateSpecOperationsSource<BeerDTO, int>()
                 {

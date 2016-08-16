@@ -9,7 +9,7 @@
         })
         .factory('Office', function ($resource, appSettings) {
 
-            var OfficeService = $resource(appSettings.serverPath + 'office', {}, {
+            var OfficeService = $resource(appSettings.serverPath + 'offices', {}, {
                 'query': {
                     method: 'get',
                     headers: {

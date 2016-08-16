@@ -8,15 +8,10 @@ namespace Beertap.WebApi.Hypermedia
 {
     public class AddBeerSpec: SingleStateResourceSpec<AddBeerDTO, int>
     {
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Office({OfficeId})/AddKeg");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({OfficeId})/AddKeg");
         protected override IEnumerable<ResourceLinkTemplate<AddBeerDTO>> Links()
         {
-            yield return CreateLinkTemplate(CommonLinkRelations.Self, BeerSpec.Uri, c => c.OfficeId, c=> c.Id);
-        }
-
-        public override string EntrypointRelation
-        {
-            get { return LinkRelations.Beers.AddKeg; }
+            yield return CreateLinkTemplate(CommonLinkRelations.Self, BeerSpec.Uri, c => c.OfficeId, c => c.Id);
         }
 
         public override IResourceStateSpec<AddBeerDTO, NullState, int> StateSpec

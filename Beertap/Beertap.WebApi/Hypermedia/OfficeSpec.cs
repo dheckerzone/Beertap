@@ -8,7 +8,7 @@ namespace Beertap.WebApi.Hypermedia
 {
     public class OfficeSpec: SingleStateResourceSpec<OfficeDTO, int>
     {
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Office({Id})");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({Id})");
         protected override IEnumerable<ResourceLinkTemplate<OfficeDTO>> Links()
         {
             yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.Id);
