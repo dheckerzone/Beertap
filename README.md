@@ -4,31 +4,31 @@
 
 Method: Get
 
-URL: http://localhost:3000//offices
+URL: http://localhost:3000/offices
 
 **Office**
 
 Method: Get
 
-URL: http://localhost:3000//offices(1)
+URL: http://localhost:3000/offices(1)
 
 **Beer List**
 
 Method: Get
 
-URL: http://localhost:3000//offices(1)/beers
+URL: http://localhost:3000/offices(1)/beers
 
 **Beer**
 
 Method: Get
 
-URL: http://localhost:3000//offices(1)/beers(1)
+URL: http://localhost:3000/offices(1)/beers(1)
 
 **Get Beer**
 
 Method: POST
 
-URL: http://localhost:3000//offices(1)/beers(1)
+URL: http://localhost:3000/offices(1)/beers(1)
 
 Raw, Json:
 ```
@@ -45,7 +45,7 @@ Raw, Json:
 
 Method: POST
 
-URL: http://localhost:3000//offices(1)/ReplaceKeg(1)
+URL: http://localhost:3000/offices(1)/ReplaceKeg(1)
 
 Raw, Json:
 ```
@@ -61,7 +61,7 @@ Raw, Json:
 
 Method: POST
 
-URL: http://localhost:3000//offices(1)/AddKeg
+URL: http://localhost:3000/offices(1)/AddKeg
 
 Raw, Json:
 ```
