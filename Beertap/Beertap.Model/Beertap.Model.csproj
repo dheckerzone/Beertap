@@ -60,9 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddBeerDTO.cs" />
-    <Compile Include="BeerBaseDTO.cs" />
     <Compile Include="BeerDTO.cs" />
     <Compile Include="BeerState.cs" />
+    <Compile Include="IBeerDTO.cs" />
     <Compile Include="IStatefulBeer.cs" />
     <Compile Include="LinkRelations.cs" />
     <Compile Include="OfficeDTO.cs" />

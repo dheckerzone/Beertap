@@ -1,4 +1,4 @@
 ﻿(function () {
     "use strict";
-    angular.module('Beertap', ['ngRoute','beertap.service']);
+    angular.module('Beertap', ['ngRoute','beertap.service','ngSanitize']);
 })();

@@ -19,7 +19,6 @@ namespace Beertap.Documentation.Controllers
         {
         }
 
-
         public ActionResult Index()
         {
 

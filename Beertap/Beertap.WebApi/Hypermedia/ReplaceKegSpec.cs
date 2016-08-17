@@ -8,7 +8,8 @@ namespace Beertap.WebApi.Hypermedia
 {
     public class ReplaceKegSpec: SingleStateResourceSpec<ReplaceBeerDTO, int>
     {
-        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({OfficeId})/ReplaceKeg({Id})");
+        //public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({OfficeId})/Beers(Id)/ReplaceKeg");
+        public static ResourceUriTemplate Uri = ResourceUriTemplate.Create( BeerSpec.Uri + "/ReplaceKeg");
 
         protected override IEnumerable<ResourceLinkTemplate<ReplaceBeerDTO>> Links()
         {

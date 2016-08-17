@@ -10,12 +10,15 @@
     margin: 10px;
 }
 .keg {
-    margin: 5px;
+    margin: 10px;
+    padding:10px;
     width: 250px;
     height: 350px;
     display: inline-block;
     text-align:center;
     vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 25px;
 }
 .beerKegContainer {
     margin: 100px auto;
@@ -23,4 +26,23 @@
 }
 .beer-brand {
     font-size: 20px;
+}
+.keg-state-new {
+    fill: #00ff00;
+}
+.keg-state-goingdown {
+    fill: #b6ff00;
+}
+.keg-state-almostempty {
+    fill: #ff6a00;
+}
+.keg-state-dry {
+    fill: #ff0000;
+}
+#get-beer-icon, #replace-keg-icon{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin: 0 auto;
+    cursor: pointer;
 }
