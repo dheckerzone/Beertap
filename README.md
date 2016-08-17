@@ -1,75 +1,20 @@
-# Beertap
+Clone Beertap Repo
 
-**Office List**
+Open cloned solution
 
-Method: Get
+Restore Nuget packages
 
-URL: http://localhost:3000/offices
+Build solution 
 
-**Office**
+Modify connection string on webapi project
 
-Method: Get
+Set Beertap.UI and Beertap.WebApi as startup projects
 
-URL: http://localhost:3000/offices(1)
+Play
 
-**Beer List**
 
-Method: Get
+Note: 
 
-URL: http://localhost:3000/offices(1)/beers
+There will be a delay on the first run
 
-**Beer**
-
-Method: Get
-
-URL: http://localhost:3000/offices(1)/beers(1)
-
-**Get Beer**
-
-Method: POST
-
-URL: http://localhost:3000/offices(1)/beers(1)
-
-Raw, Json:
-```
-{
-  "Id": 1,
-  "OfficeId": 1,
-  "Brand": "Budweiser",
-  "Milliliters": 400,
-  "BeerState": "New"
-}
-```
-
-**Replace Keg**
-
-Method: POST
-
-URL: http://localhost:3000/offices(1)/ReplaceKeg(1)
-
-Raw, Json:
-```
-{
-  "Id": 1,
-  "OfficeId": 1,
-  "Brand": "Budweiser",
-  "Milliliters": 4000,
-  "BeerState": "New"
-}
-```
-
-**Add Keg**
-
-Method: POST
-
-URL: http://localhost:3000/offices(1)/AddKeg
-
-Raw, Json:
-```
-{
-  "OfficeId": 1,
-  "Brand": "Corona Extra",
-  "Milliliters": 4000,
-  "BeerState": "New"
-}
-```
+Click Help tab for more info regarding the api
