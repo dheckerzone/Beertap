@@ -6,7 +6,7 @@ namespace Beertap.Model
     /// <summary>
     /// Data Transfer Object for Adding Beer
     /// </summary>
-    public class AddBeerDTO: IBeerDTO, IStatelessResource, IIdentifiable<int>
+    public class AddBeer: IBeer, IStatelessResource, IIdentifiable<int>
     {
         /// <summary>
         /// Unique Identifier for Beer

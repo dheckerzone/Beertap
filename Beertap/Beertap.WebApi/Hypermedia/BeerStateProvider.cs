@@ -6,7 +6,7 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace Beertap.WebApi.Hypermedia
 {
-    public class BeerStateProvider: BeerStateProvider<BeerDTO>
+    public class BeerStateProvider: BeerStateProvider<Beer>
     {
         
     }

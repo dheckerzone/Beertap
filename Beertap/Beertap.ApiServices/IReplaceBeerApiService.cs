@@ -3,7 +3,7 @@ using IQ.Platform.Framework.WebApi;
 
 namespace Beertap.ApiServices
 {
-    public interface IReplaceBeerApiService: IUpdateAResourceAsync<ReplaceBeerDTO, int>
+    public interface IReplaceBeerApiService: IUpdateAResourceAsync<ReplaceBeer, int>
     {
     }
 }

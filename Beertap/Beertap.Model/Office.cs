@@ -6,7 +6,7 @@ namespace Beertap.Model
     /// <summary>
     /// Data Transfer Object for Office
     /// </summary>
-    public class OfficeDTO: IStatelessResource, IIdentifiable<int>
+    public class Office: IStatelessResource, IIdentifiable<int>
     {
         /// <summary>
         /// Unique Identifier for Office

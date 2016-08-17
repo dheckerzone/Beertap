@@ -13,22 +13,22 @@ namespace Beertap.ApiServices
 {
     public class BeerApiService: IBeerApiService
     {
-        public Task<BeerDTO> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
+        public Task<Model.Beer> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
             var officeId = context
                             .UriParameters
                             .GetByName<int>("OfficeId")
-                            .EnsureValue(() => context.CreateHttpResponseException<BeerDTO>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
+                            .EnsureValue(() => context.CreateHttpResponseException<Model.Beer>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
 
             using (var ctx = new BeertapContext())
             {
-                BeerDTO result = GetBeerInfo(id, officeId, ctx);
+                Model.Beer result = GetBeerInfo(id, officeId, ctx);
 
                 return Task.FromResult(result);
             }
         }
 
-        public Task<BeerDTO> UpdateAsync(BeerDTO resource, IRequestContext context, CancellationToken cancellation)
+        public Task<Model.Beer> UpdateAsync(Model.Beer resource, IRequestContext context, CancellationToken cancellation)
         {
             using (var ctx = new BeertapContext())
             {
@@ -46,22 +46,22 @@ namespace Beertap.ApiServices
             }
         }
 
-        public Task<IEnumerable<BeerDTO>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
+        public Task<IEnumerable<Model.Beer>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
             var officeId = context
                             .UriParameters
                             .GetByName<int>("OfficeId")
-                            .EnsureValue(() => context.CreateHttpResponseException<BeerDTO>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
+                            .EnsureValue(() => context.CreateHttpResponseException<Model.Beer>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
 
             using (var ctx = new BeertapContext())
             {
                 var beer = ctx.Beer.Where(b => b.OfficeId == officeId).ToList();
 
-                var result = new List<BeerDTO>();
+                var result = new List<Model.Beer>();
 
                 beer.ForEach(b => {
                     result.Add(
-                        new BeerDTO
+                        new Model.Beer
                         {
                             Id = b.BeerId,
                             Brand = b.Brand,
@@ -75,11 +75,11 @@ namespace Beertap.ApiServices
             }
         }
 
-        public Task<ResourceCreationResult<BeerDTO, int>> CreateAsync(BeerDTO resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<Model.Beer, int>> CreateAsync(Model.Beer resource, IRequestContext context, CancellationToken cancellation)
         {
             using (var ctx = new BeertapContext())
             {
-                var beer = new Beer
+                var beer = new Data.Beer
                 {
                     Brand = resource.Brand,
                     Milliliters = resource.Milliliters,
@@ -92,15 +92,15 @@ namespace Beertap.ApiServices
 
                 var result = GetBeerInfo(beer.BeerId, beer.OfficeId, ctx);
 
-                return Task.FromResult(new ResourceCreationResult<BeerDTO, int>(result));
+                return Task.FromResult(new ResourceCreationResult<Model.Beer, int>((Model.Beer)result));
             }
         }
 
-        private BeerDTO GetBeerInfo(int id, int officeId, BeertapContext ctx)
+        private Model.Beer GetBeerInfo(int id, int officeId, BeertapContext ctx)
         {
             var beer = ctx.Beer.First(b => b.OfficeId == officeId && b.BeerId == id);
 
-            var result = new BeerDTO
+            var result = new Model.Beer
             {
                 Id = beer.BeerId,
                 Brand = beer.Brand,

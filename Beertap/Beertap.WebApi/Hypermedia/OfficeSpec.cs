@@ -6,10 +6,10 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace Beertap.WebApi.Hypermedia
 {
-    public class OfficeSpec: SingleStateResourceSpec<OfficeDTO, int>
+    public class OfficeSpec: SingleStateResourceSpec<Office, int>
     {
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({Id})");
-        protected override IEnumerable<ResourceLinkTemplate<OfficeDTO>> Links()
+        protected override IEnumerable<ResourceLinkTemplate<Office>> Links()
         {
             yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.Id);
             yield return CreateLinkTemplate(LinkRelations.Beer, BeerSpec.Uri.Many, c=> c.Id);

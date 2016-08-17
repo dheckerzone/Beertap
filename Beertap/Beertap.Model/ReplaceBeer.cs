@@ -1,34 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using IQ.Platform.Framework.Common;
+using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace Beertap.Model
 {
-    public interface IBeerDTO
+    /// <summary>
+    /// Data Transfer Object for Replacing Keg
+    /// </summary>
+    public class ReplaceBeer : IBeer, IStatelessResource, IIdentifiable<int>
     {
         /// <summary>
         /// Unique Identifier for Beer
         /// </summary>
-        int Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Foreign Key Identifier for Office Id
         /// </summary>
-        int OfficeId { get; set; }
+        public int OfficeId { get; set; }
 
         /// <summary>
         /// Brand of the Beer
         /// </summary>
-        string Brand { get; set; }
+        public string Brand { get; set; }
+
         /// <summary>
         /// Size of beer in Milliliter
         /// </summary>
-        int Milliliters { get; set; }
+        public int Milliliters { get; set; }
+
         /// <summary>
         /// State of the Beer Keg
         /// </summary>
-        BeerState BeerState { get; set; }
+        public BeerState BeerState { get; set; }
     }
 }

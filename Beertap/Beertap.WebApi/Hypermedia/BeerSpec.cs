@@ -6,63 +6,63 @@ using IQ.Platform.Framework.WebApi.Model.Hypermedia;
 
 namespace Beertap.WebApi.Hypermedia
 {
-    public class BeerSpec : ResourceSpec<BeerDTO, BeerState, int>
+    public class BeerSpec : ResourceSpec<Beer, BeerState, int>
     {
         public static ResourceUriTemplate Uri = ResourceUriTemplate.Create("Offices({OfficeId})/Beers({Id})");
-        protected override IEnumerable<ResourceLinkTemplate<BeerDTO>> Links()
+        protected override IEnumerable<ResourceLinkTemplate<Beer>> Links()
         {
             yield return CreateLinkTemplate(CommonLinkRelations.Self, Uri, c => c.OfficeId, c => c.Id);
         }
 
-        protected override IEnumerable<IResourceStateSpec<BeerDTO, BeerState, int>> GetStateSpecs()
+        protected override IEnumerable<IResourceStateSpec<Beer, BeerState, int>> GetStateSpecs()
         {
-            yield return new ResourceStateSpec<BeerDTO, BeerState, int>(BeerState.New)
+            yield return new ResourceStateSpec<Beer, BeerState, int>(BeerState.New)
             {
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Beers.GetBeer, Uri, c=> c.OfficeId, c=> c.Id)
                 },
-                Operations = new StateSpecOperationsSource<BeerDTO, int>()
+                Operations = new StateSpecOperationsSource<Beer, int>()
                 {
                     Get = ServiceOperations.Get,
                     Post = ServiceOperations.Update,
                     Put = ServiceOperations.Update
                 }
             };
-            yield return new ResourceStateSpec<BeerDTO, BeerState, int>(BeerState.GoingDown)
+            yield return new ResourceStateSpec<Beer, BeerState, int>(BeerState.GoingDown)
             {
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Beers.GetBeer, Uri, c=> c.OfficeId, c=> c.Id)
                 },
-                Operations = new StateSpecOperationsSource<BeerDTO, int>()
+                Operations = new StateSpecOperationsSource<Beer, int>()
                 {
                     Get = ServiceOperations.Get,
                     Post = ServiceOperations.Update,
                     Put = ServiceOperations.Update
                 }
             };
-            yield return new ResourceStateSpec<BeerDTO, BeerState, int>(BeerState.AlmostEmpty)
+            yield return new ResourceStateSpec<Beer, BeerState, int>(BeerState.AlmostEmpty)
             {
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Beers.GetBeer, Uri, c=> c.OfficeId, c=> c.Id),
                     CreateLinkTemplate(LinkRelations.Beers.ReplaceKeg, ReplaceKegSpec.Uri, c=> c.OfficeId, c=> c.Id)
                 },
-                Operations = new StateSpecOperationsSource<BeerDTO, int>()
+                Operations = new StateSpecOperationsSource<Beer, int>()
                 {
                     Get = ServiceOperations.Get,
                     Post = ServiceOperations.Update,
                     Put = ServiceOperations.Update
                 }
             };
-            yield return new ResourceStateSpec<BeerDTO, BeerState, int>(BeerState.Dry)
+            yield return new ResourceStateSpec<Beer, BeerState, int>(BeerState.Dry)
             {
                 Links =
                 {
                     CreateLinkTemplate(LinkRelations.Beers.ReplaceKeg, ReplaceKegSpec.Uri, c=> c.OfficeId, c=> c.Id)
                 },
-                Operations = new StateSpecOperationsSource<BeerDTO, int>()
+                Operations = new StateSpecOperationsSource<Beer, int>()
                 {
                     Get = ServiceOperations.Get
                 }

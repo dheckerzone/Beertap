@@ -10,13 +10,13 @@ namespace Beertap.ApiServices
 {
     public class OfficeApiService: IOfficeApiService
     {
-        public Task<OfficeDTO> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
+        public Task<Model.Office> GetAsync(int id, IRequestContext context, CancellationToken cancellation)
         {
             using (var ctx = new BeertapContext())
             {
                 var office = ctx.Office.FirstOrDefault(o => o.OfficeId == id);
 
-                var result = new OfficeDTO
+                var result = new Model.Office
                 {
                     Id = office.OfficeId,
                     Location = office.Location
@@ -26,24 +26,24 @@ namespace Beertap.ApiServices
             }
         }
 
-        public Task<IEnumerable<OfficeDTO>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
+        public Task<IEnumerable<Model.Office>> GetManyAsync(IRequestContext context, CancellationToken cancellation)
         {
             using (var ctx = new BeertapContext())
             {
                 var offices = ctx.Office.ToList();
 
-                var results = new List<OfficeDTO>();
+                var results = new List<Model.Office>();
 
                 offices.ForEach(
                     o=> 
                         results.Add(
-                            new OfficeDTO
+                            new Model.Office
                             {
                                 Id = o.OfficeId,
                                 Location = o.Location
                             }));
 
-                return Task.FromResult((IEnumerable<OfficeDTO>)results);
+                return Task.FromResult((IEnumerable<Model.Office>)results);
             }
         }
     }

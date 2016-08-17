@@ -14,16 +14,16 @@ namespace Beertap.ApiServices
 {
     public class AddBeerApiService : IAddBeerApiService
     {
-        public Task<ResourceCreationResult<AddBeerDTO, int>> CreateAsync(AddBeerDTO resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ResourceCreationResult<AddBeer, int>> CreateAsync(AddBeer resource, IRequestContext context, CancellationToken cancellation)
         {
             var officeId = context
                             .UriParameters
                             .GetByName<int>("OfficeId")
-                            .EnsureValue(() => context.CreateHttpResponseException<AddBeerDTO>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
+                            .EnsureValue(() => context.CreateHttpResponseException<AddBeer>("The officeId must be supplied in the URI", HttpStatusCode.BadRequest));
 
             using (var ctx = new BeertapContext())
             {
-                var newKeg = new Beer
+                var newKeg = new Data.Beer
                 {
                     Brand = resource.Brand,
                     Milliliters = resource.Milliliters,
@@ -36,7 +36,7 @@ namespace Beertap.ApiServices
 
                 var beer = ctx.Beer.First(b => b.OfficeId == officeId && b.BeerId == newKeg.BeerId);
 
-                var result = new AddBeerDTO
+                var result = new AddBeer
                 {
                     Id = beer.BeerId,
                     Brand = beer.Brand,
@@ -45,7 +45,7 @@ namespace Beertap.ApiServices
                     BeerState = Common.GetBeerState(beer.Milliliters)
                 };
 
-                return Task.FromResult(new ResourceCreationResult<AddBeerDTO, int>(result));
+                return Task.FromResult(new ResourceCreationResult<AddBeer, int>(result));
             }
         }
     }

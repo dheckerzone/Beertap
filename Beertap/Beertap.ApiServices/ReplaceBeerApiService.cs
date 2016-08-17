@@ -9,7 +9,7 @@ namespace Beertap.ApiServices
 {
     public class ReplaceBeerApiService: IReplaceBeerApiService
     {
-        public Task<ReplaceBeerDTO> UpdateAsync(ReplaceBeerDTO resource, IRequestContext context, CancellationToken cancellation)
+        public Task<ReplaceBeer> UpdateAsync(ReplaceBeer resource, IRequestContext context, CancellationToken cancellation)
         {
             using (var ctx = new BeertapContext())
             {

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Beertap.ApiServices
 {
-    public interface IAddBeerApiService: ICreateAResourceAsync<AddBeerDTO, int>
+    public interface IAddBeerApiService: ICreateAResourceAsync<AddBeer, int>
     {
     }
 }
